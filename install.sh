@@ -6,26 +6,45 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT_DIR"
 
 print_intro() {
-  cat <<'EOF'
+  local reset=""
+  local rose=""
+  local gold=""
+  local teal=""
+  local iris=""
 
-   .---------------------------------------------.
-   |  []    []    []    []    []    []    []    |
-   |     ____  _        _                _       |
-   |    / ___|| |_ __ _(_)_ __   ___  __| |      |
-   |    \___ \| __/ _` | | '_ \ / _ \/ _` |      |
-   |     ___) | || (_| | | | | |  __/ (_| |      |
-   |    |____/ \__\__,_|_|_| |_|\___|\__,_|      |
-   |                                             |
-   |        ____ _                               |
-   |       / ___| | __ _ ___ ___                 |
-   |      | |  _| |/ _` / __/ __|                |
-   |      | |_| | | (_| \__ \__ \                |
-   |       \____|_|\__,_|___/___/                |
-   |                                             |
-   |  Building and installing your local VSIX.   |
-   '---------------------------------------------'
+  if [[ -t 1 && -z "${NO_COLOR:-}" ]]; then
+    reset=$'\033[0m'
+    rose=$'\033[45m  \033[0m'
+    gold=$'\033[43m  \033[0m'
+    teal=$'\033[46m  \033[0m'
+    iris=$'\033[44m  \033[0m'
+  else
+    rose="[]"
+    gold="[]"
+    teal="[]"
+    iris="[]"
+  fi
 
-EOF
+  printf '\n'
+  printf '             +\n'
+  printf '             |\n'
+  printf '            / \\\n'
+  printf '           /___\\\n'
+  printf '             |\n'
+  printf '        _____|_____\n'
+  printf '       /     |     \\\n'
+  printf '      /_____/ \\_____\\\n'
+  printf '      |   .-"""-.   |\n'
+  printf '      |  / %s%s \\  |\n' "$rose" "$gold"
+  printf '      |  | %s%s |  |\n' "$teal" "$iris"
+  printf '      |  \\_____/  |\n'
+  printf '      |     _      |\n'
+  printf '      |    | |     |\n'
+  printf '      |____|_|_____|\n'
+  printf '\n'
+  printf '      Stained Glass installer%s\n' "$reset"
+  printf '      Building your local VSIX.\n'
+  printf '\n'
 }
 
 require_command() {
@@ -39,7 +58,24 @@ require_command() {
   fi
 }
 
+confirm_install() {
+  local answer=""
+
+  read -r -p "Build and install Stained Glass into VS Code? [y/N] " answer
+
+  case "$answer" in
+    y|Y|yes|YES)
+      return 0
+      ;;
+    *)
+      echo "Cancelled."
+      exit 0
+      ;;
+  esac
+}
+
 print_intro
+confirm_install
 
 require_command "node" "Install Node.js before running this script."
 require_command "npm" "Install npm before running this script."
