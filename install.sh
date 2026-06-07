@@ -5,6 +5,29 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT_DIR"
 
+print_intro() {
+  cat <<'EOF'
+
+   .---------------------------------------------.
+   |  []    []    []    []    []    []    []    |
+   |     ____  _        _                _       |
+   |    / ___|| |_ __ _(_)_ __   ___  __| |      |
+   |    \___ \| __/ _` | | '_ \ / _ \/ _` |      |
+   |     ___) | || (_| | | | | |  __/ (_| |      |
+   |    |____/ \__\__,_|_|_| |_|\___|\__,_|      |
+   |                                             |
+   |        ____ _                               |
+   |       / ___| | __ _ ___ ___                 |
+   |      | |  _| |/ _` / __/ __|                |
+   |      | |_| | | (_| \__ \__ \                |
+   |       \____|_|\__,_|___/___/                |
+   |                                             |
+   |  Building and installing your local VSIX.   |
+   '---------------------------------------------'
+
+EOF
+}
+
 require_command() {
   local command_name="$1"
   local install_hint="$2"
@@ -15,6 +38,8 @@ require_command() {
     exit 1
   fi
 }
+
+print_intro
 
 require_command "node" "Install Node.js before running this script."
 require_command "npm" "Install npm before running this script."

@@ -4,6 +4,10 @@
   "description": "Assigns deterministic Radix-based workbench colors to VS Code workspace windows.",
   "version": "0.0.1",
   "publisher": "robn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robotnorman/stained-glass.git"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -11,7 +15,7 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "main": "./dist/src/extension.js",
   "scripts": {
