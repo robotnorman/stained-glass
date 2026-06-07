@@ -1,0 +1,11 @@
+src/**
+test/**
+.ai/**
+.agents/**
+.cursor/**
+.claude/**
+tsconfig.json
+CLAUDE.md
+AGENTS.md
+node_modules/@types/**
+*.tsbuildinfo
