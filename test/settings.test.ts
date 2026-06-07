@@ -5,8 +5,11 @@ import type { StainedGlassColors } from "../src/radixPalettes";
 
 const colors: StainedGlassColors = {
   "activityBar.background": "#111111",
+  "activityBar.activeBackground": "#333333",
   "titleBar.activeBackground": "#222222",
   "titleBar.activeForeground": "#ffffff",
+  "titleBar.inactiveBackground": "#000000",
+  "titleBar.inactiveForeground": "#cccccc",
 };
 
 test("mergeMissingColorCustomizations writes all missing color keys", () => {
@@ -31,8 +34,11 @@ test("mergeMissingColorCustomizations preserves manually configured keys", () =>
   const parsed = JSON.parse(stripLineComments(result.text));
 
   assert.equal(parsed["workbench.colorCustomizations"]["activityBar.background"], "#abcdef");
+  assert.equal(parsed["workbench.colorCustomizations"]["activityBar.activeBackground"], "#333333");
   assert.equal(parsed["workbench.colorCustomizations"]["titleBar.activeBackground"], "#222222");
   assert.equal(parsed["workbench.colorCustomizations"]["titleBar.activeForeground"], "#ffffff");
+  assert.equal(parsed["workbench.colorCustomizations"]["titleBar.inactiveBackground"], "#000000");
+  assert.equal(parsed["workbench.colorCustomizations"]["titleBar.inactiveForeground"], "#cccccc");
 });
 
 test("mergeMissingColorCustomizations does not change fully configured settings", () => {

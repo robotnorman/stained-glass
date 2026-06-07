@@ -8,8 +8,11 @@ const node_test_1 = __importDefault(require("node:test"));
 const settings_1 = require("../src/settings");
 const colors = {
     "activityBar.background": "#111111",
+    "activityBar.activeBackground": "#333333",
     "titleBar.activeBackground": "#222222",
     "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#000000",
+    "titleBar.inactiveForeground": "#cccccc",
 };
 (0, node_test_1.default)("mergeMissingColorCustomizations writes all missing color keys", () => {
     const result = (0, settings_1.mergeMissingColorCustomizations)("{}", colors);
@@ -27,8 +30,11 @@ const colors = {
 }`, colors);
     const parsed = JSON.parse(stripLineComments(result.text));
     strict_1.default.equal(parsed["workbench.colorCustomizations"]["activityBar.background"], "#abcdef");
+    strict_1.default.equal(parsed["workbench.colorCustomizations"]["activityBar.activeBackground"], "#333333");
     strict_1.default.equal(parsed["workbench.colorCustomizations"]["titleBar.activeBackground"], "#222222");
     strict_1.default.equal(parsed["workbench.colorCustomizations"]["titleBar.activeForeground"], "#ffffff");
+    strict_1.default.equal(parsed["workbench.colorCustomizations"]["titleBar.inactiveBackground"], "#000000");
+    strict_1.default.equal(parsed["workbench.colorCustomizations"]["titleBar.inactiveForeground"], "#cccccc");
 });
 (0, node_test_1.default)("mergeMissingColorCustomizations does not change fully configured settings", () => {
     const input = JSON.stringify({

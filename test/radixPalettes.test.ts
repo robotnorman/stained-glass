@@ -14,6 +14,9 @@ test("selectPalette returns deterministic Radix dark scale window colors", () =>
 
   assert.deepEqual(first, second);
   assert.match(first.colors["activityBar.background"], /^#/);
+  assert.match(first.colors["activityBar.activeBackground"], /^#/);
   assert.match(first.colors["titleBar.activeBackground"], /^#/);
   assert.match(first.colors["titleBar.activeForeground"], /^#/);
+  assert.match(first.colors["titleBar.inactiveBackground"], /^#/);
+  assert.match(first.colors["titleBar.inactiveForeground"], /^#/);
 });

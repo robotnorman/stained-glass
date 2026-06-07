@@ -44,8 +44,11 @@ function selectPalette(directoryName) {
         name: palette.name,
         colors: {
             "activityBar.background": palette.scale[`${palette.name}3`],
+            "activityBar.activeBackground": palette.scale[`${palette.name}5`],
             "titleBar.activeBackground": palette.scale[`${palette.name}4`],
             "titleBar.activeForeground": palette.scale[`${palette.name}12`],
+            "titleBar.inactiveBackground": palette.scale[`${palette.name}2`],
+            "titleBar.inactiveForeground": palette.scale[`${palette.name}11`],
         },
     };
 }

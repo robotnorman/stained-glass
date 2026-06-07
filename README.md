@@ -10,8 +10,11 @@ When a workspace opens, the extension selects a Radix Colors dark palette from a
 {
   "workbench.colorCustomizations": {
     "activityBar.background": "#37172f",
+    "activityBar.activeBackground": "#591c47",
     "titleBar.activeBackground": "#4b143d",
-    "titleBar.activeForeground": "#fdd1ea"
+    "titleBar.activeForeground": "#fdd1ea",
+    "titleBar.inactiveBackground": "#21121d",
+    "titleBar.inactiveForeground": "#ff8dcc"
   }
 }
 ```
