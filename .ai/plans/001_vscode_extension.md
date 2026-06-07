@@ -16,4 +16,5 @@ Create a VS Code extension named Stained Glass that gives each opened workspace 
 5. Preserve manual configuration by only filling keys that are currently missing.
 6. Write changes to `<workspace>/.vscode/settings.json` while preserving valid JSONC settings.
 7. Add focused tests for palette selection and settings merge behavior.
-8. Run build and tests, then commit and open the PR.
+8. Document that palettes are selected from Radix Colors and link to the Radix Colors site.
+9. Run build and tests, then commit and open the PR.
