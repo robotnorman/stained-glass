@@ -1,0 +1,31 @@
+{
+  "name": "stained-glass",
+  "displayName": "Stained Glass",
+  "description": "Assigns deterministic Radix-based workbench colors to VS Code workspace windows.",
+  "version": "0.0.1",
+  "publisher": "robn",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/src/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "test": "npm run compile && node --test dist/test/*.test.js"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "jsonc-parser": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^5.9.0"
+  }
+}
